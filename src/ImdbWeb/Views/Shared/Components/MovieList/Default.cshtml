@@ -1,0 +1,17 @@
+﻿@model WebApplication2.ViewComponents.MovieListViewModel
+
+<h2>This is the ViewComponent's Default.cshtml</h2>
+@if (Model.Movies.Any())
+{
+	<h2>@Model.Title</h2>
+	<ul>
+		@foreach (var movie in Model.Movies.OrderBy(m => m.Title))
+		{
+			<li>
+				<a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.MovieId">@movie.Title</a>
+			</li>
+		}
+	</ul>
+}
+
+@Html.ActionLink("","")
